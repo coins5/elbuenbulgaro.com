@@ -1,0 +1,47 @@
+---
+import Leaf from "../svg/leaf.astro"
+import Milk from "../svg/milk.astro"
+import Shield from "../svg/shield.astro"
+---
+<div class="container mx-auto py-12 px-12 mt-12">
+  <div class="text-3xl font-bold text-center">
+    Beneficios para tu salud
+  </div>
+
+  <div class="text-lg text-center mt-4">
+    Mejora tu salud digestiva y fortalece tu sistema inmunológico con nuestros probióticos naturales.
+  </div>
+
+  <div class="md:flex md:justify-around mt-8">
+    
+    <div class="card">
+      <figure>
+        <Leaf></Leaf>
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">Mejora la digestión</h2>
+        <p>Los probióticos ayudan a mantener un sistema digestivo saludable.</p>
+      </div>
+    </div>
+    
+    <div class="card">
+      <figure>
+        <Shield></Shield>
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">Fortalece el sistema inmune</h2>
+        <p>Aumenta tus defensas naturales contra enfermedades.</p>
+      </div>
+    </div>
+    
+    <div class="card">
+      <figure>
+        <Milk></Milk>
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">Rico en nutrientes</h2>
+        <p>Fuente de proteínas, vitaminas y minerales esenciales.</p>
+      </div>
+    </div>
+  </div>
+</div>
