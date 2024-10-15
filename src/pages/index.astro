@@ -4,10 +4,7 @@ import Navbar from "../components/navbar.astro"
 import CustomizableLayout from "../layouts/customizable_layout.astro"
 import OurProducts from "../components/home/our_products.astro"
 import Benefits from "../components/home/benefits.astro"
-
-import PackStarter from "../components/svg/pack_starter.astro"
-import PackPlus from "../components/svg/pack_plus.astro"
-import PackVidaSaludable from "../components/svg/pack_vida_saludable.astro"
+import Subscriptions from "../components/home/subscriptions.astro"
 ---
 
 <CustomizableLayout>
@@ -35,52 +32,9 @@ import PackVidaSaludable from "../components/svg/pack_vida_saludable.astro"
 
 	<OurProducts />
 	<Benefits />
+	<Subscriptions />
 	
-	<div class="bg-neutral-content py-12 px-12 mt-12">
-		<div class="text-3xl font-bold text-center">
-			Suscripciones con envíos programados
-		</div>
-		
-		<div class="grid gap-4 md:grid-cols-3 mt-8">
-			<div class="card bg-base-100 shadow-xl">
-				<figure class="px-10 pt-10">
-					<PackStarter />
-				</figure>
-				<div class="card-body">
-					<h2 class="card-title">Starter</h2>
-					<p>Cultivos vivos para preparar tu propio yogur búlgaro en casa.</p>
-					<ul>
-						<li>
-							Precio por botella S/. 12
-						</li>
-						<li>
-							Delivery S/. 7.5
-						</li>
-					</ul>
-				</div>
-			</div>
 	
-			<div class="card bg-base-100 shadow-xl">
-				<figure class="px-10 pt-10">
-					<PackPlus />
-				</figure>
-				<div class="card-body">
-					<h2 class="card-title">Plus</h2>
-					<p>Bebida probiótica rica en nutrientes y microorganismos beneficiosos.</p>
-				</div>
-			</div>
-
-			<div class="card bg-base-100 shadow-xl">
-				<figure class="px-10 pt-10">
-					<PackVidaSaludable></PackVidaSaludable>
-				</figure>
-				<div class="card-body">
-					<h2 class="card-title">Vida saludable</h2>
-					<p>Bebida probiótica rica en nutrientes y microorganismos beneficiosos.</p>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	
 </CustomizableLayout>
