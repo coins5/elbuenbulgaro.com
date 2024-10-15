@@ -1,16 +1,80 @@
 ---
-
+// import DefaultLayout from "../layouts/default_layout.astro"
+import Navbar from "../components/navbar.astro"
+import CustomizableLayout from "../layouts/customizable_layout.astro"
+import OurProducts from "../components/home/our_products.astro"
+import Leaf from "../components/svg/leaf.astro"
+import Milk from "../components/svg/milk.astro"
+import Shield from "../components/svg/shield.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<CustomizableLayout>
+
+	<div class="container mx-auto px-4">
+		<Navbar />
+		<div class="text-3xl font-bold text-center">
+			Descubre el poder de los Búlgaros y la Leche Kéfir
+		</div>
+	
+		<div class="text-lg text-center mt-4">
+			Mejora tu salud digestiva y fortalece tu sistema inmunológico con nuestros probióticos naturales.
+		</div>
+	
+		<div class="flex justify-center mt-8">
+			<a class="btn btn-primary mx-3" href="https://wa.me/51915244029">
+				Comprar ahora
+			</a>
+	
+			<a class="btn btn-secondary btn-outline mx-3" href="/pricing">
+				Más información
+			</a>		
+		</div>
+	</div>
+
+	<OurProducts />
+
+	<div class="container mx-auto py-12 px-12 mt-12">
+		<div class="text-3xl font-bold text-center">
+			Beneficios para tu salud
+		</div>
+	
+		<div class="text-lg text-center mt-4">
+			Mejora tu salud digestiva y fortalece tu sistema inmunológico con nuestros probióticos naturales.
+		</div>
+	
+		<div class="md:flex md:justify-around mt-8">
+			
+			<div class="card">
+				<figure>
+					<Leaf></Leaf>
+				</figure>
+				<div class="card-body items-center text-center">
+					<h2 class="card-title">Mejora la digestión</h2>
+					<p>Los probióticos ayudan a mantener un sistema digestivo saludable.</p>
+				</div>
+			</div>
+			
+			<div class="card">
+				<figure>
+					<Shield></Shield>
+				</figure>
+				<div class="card-body items-center text-center">
+					<h2 class="card-title">Fortalece el sistema inmune</h2>
+					<p>Aumenta tus defensas naturales contra enfermedades.</p>
+				</div>
+			</div>
+			
+			<div class="card">
+				<figure>
+					<Milk></Milk>
+				</figure>
+				<div class="card-body items-center text-center">
+					<h2 class="card-title">Rico en nutrientes</h2>
+					<p>Fuente de proteínas, vitaminas y minerales esenciales.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+</CustomizableLayout>
