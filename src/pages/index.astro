@@ -3,9 +3,11 @@
 import Navbar from "../components/navbar.astro"
 import CustomizableLayout from "../layouts/customizable_layout.astro"
 import OurProducts from "../components/home/our_products.astro"
-import Leaf from "../components/svg/leaf.astro"
-import Milk from "../components/svg/milk.astro"
-import Shield from "../components/svg/shield.astro"
+import Benefits from "../components/home/benefits.astro"
+
+import PackStarter from "../components/svg/pack_starter.astro"
+import PackPlus from "../components/svg/pack_plus.astro"
+import PackVidaSaludable from "../components/svg/pack_vida_saludable.astro"
 ---
 
 <CustomizableLayout>
@@ -25,52 +27,56 @@ import Shield from "../components/svg/shield.astro"
 				Comprar ahora
 			</a>
 	
-			<a class="btn btn-secondary btn-outline mx-3" href="/pricing">
+			<a class="btn btn-accent btn-outline mx-3" href="/pricing">
 				Más información
 			</a>		
 		</div>
 	</div>
 
 	<OurProducts />
-
-	<div class="container mx-auto py-12 px-12 mt-12">
+	<Benefits />
+	
+	<div class="bg-neutral-content py-12 px-12 mt-12">
 		<div class="text-3xl font-bold text-center">
-			Beneficios para tu salud
+			Suscripciones con envíos programados
 		</div>
-	
-		<div class="text-lg text-center mt-4">
-			Mejora tu salud digestiva y fortalece tu sistema inmunológico con nuestros probióticos naturales.
-		</div>
-	
-		<div class="md:flex md:justify-around mt-8">
-			
-			<div class="card">
-				<figure>
-					<Leaf></Leaf>
+		
+		<div class="grid gap-4 grid-cols-3 mt-8">
+			<div class="card bg-base-100 shadow-xl">
+				<figure class="px-10 pt-10">
+					<PackStarter />
 				</figure>
-				<div class="card-body items-center text-center">
-					<h2 class="card-title">Mejora la digestión</h2>
-					<p>Los probióticos ayudan a mantener un sistema digestivo saludable.</p>
+				<div class="card-body">
+					<h2 class="card-title">Starter</h2>
+					<p>Cultivos vivos para preparar tu propio yogur búlgaro en casa.</p>
+					<ul>
+						<li>
+							Precio por botella S/. 12
+						</li>
+						<li>
+							Delivery S/. 7.5
+						</li>
+					</ul>
 				</div>
 			</div>
-			
-			<div class="card">
-				<figure>
-					<Shield></Shield>
+	
+			<div class="card bg-base-100 shadow-xl">
+				<figure class="px-10 pt-10">
+					<PackPlus />
 				</figure>
-				<div class="card-body items-center text-center">
-					<h2 class="card-title">Fortalece el sistema inmune</h2>
-					<p>Aumenta tus defensas naturales contra enfermedades.</p>
+				<div class="card-body">
+					<h2 class="card-title">Plus</h2>
+					<p>Bebida probiótica rica en nutrientes y microorganismos beneficiosos.</p>
 				</div>
 			</div>
-			
-			<div class="card">
-				<figure>
-					<Milk></Milk>
+
+			<div class="card bg-base-100 shadow-xl">
+				<figure class="px-10 pt-10">
+					<PackVidaSaludable></PackVidaSaludable>
 				</figure>
-				<div class="card-body items-center text-center">
-					<h2 class="card-title">Rico en nutrientes</h2>
-					<p>Fuente de proteínas, vitaminas y minerales esenciales.</p>
+				<div class="card-body">
+					<h2 class="card-title">Vida saludable</h2>
+					<p>Bebida probiótica rica en nutrientes y microorganismos beneficiosos.</p>
 				</div>
 			</div>
 		</div>
