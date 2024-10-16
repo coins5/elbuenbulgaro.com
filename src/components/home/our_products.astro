@@ -12,7 +12,7 @@ import Glass from "../svg/glass.astro"
       <figure>
         <img
           src="/kefir_con_leche.jpeg"
-          alt="Shoes" />
+          alt="Bulgaros de leche" />
       </figure>
       <div class="card-body items-center text-center">
         <h2 class="card-title">Búlgaros de leche</h2>
@@ -34,7 +34,7 @@ import Glass from "../svg/glass.astro"
       <figure>
         <img
           src="/3_botellas_de_kefir.jpeg"
-          alt="Shoes" />
+          alt="Botellas de Kefir" />
       </figure>
       <div class="card-body items-center text-center">
         <h2 class="card-title">Leche Kéfir artesanal</h2>
@@ -50,20 +50,128 @@ import Glass from "../svg/glass.astro"
       </div>
     </div>
     
-    <div class="col-span-2 card md:card-side bg-base-100 shadow-xl">
+    <div class="md:max-h-[560px] lg:max-h-[480px] col-span-2 card md:card-side bg-base-100 shadow-xl">
       <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-          alt="Album" />
+        <img 
+          src="/starter_kit.jpeg"
+          alt="Kit de inicio de Kefir" />
       </figure>
       <div class="card-body">
         <h2 class="card-title">Kit de inicio Kéfir</h2>
         <p>Personaliza tu kit para comenzar a hacer tu propio Kéfir en casa.</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Listen</button>
+        <div>
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">3 Cucharaditas de búlgaros (30 gramos aprox) - S/. 27</span>
+              <input id="chk_cucharaditas" type="checkbox" checked="checked" class="checkbox" disabled />
+            </label>
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">1 Botella de leche danlac 900ml - S/. 10</span>
+              <input id="chk_leche" type="checkbox" checked="checked" class="checkbox" />
+            </label>
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">1 Frasco de vidrio 1.8L - S/. 10</span>
+              <input id="chk_frasco" type="checkbox" checked="checked" class="checkbox" />
+            </label>
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">1 Paquete de filtros de Café - S/. 20</span>
+              <input id="chk_filtros" type="checkbox" checked="checked" class="checkbox" />
+            </label>
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">1 Paquete de ligas - S/. 5</span>
+              <input id="chk_ligas" type="checkbox" checked="checked" class="checkbox" />
+            </label>
+          </div>
+
+        </div>
+        <div class="card-actions justify-between mt-8">
+          <div>
+            Total S/. <span id="starter_kit_form_total"></span>
+          </div>
+          <a id="custom_href" class="btn btn-primary" target="_blank" href="#">Listen</a>
         </div>
       </div>
     </div>
   </div>
 
 </div>
+<script>
+  const chk_cucharaditas = {"id": "chk_cucharaditas", item_name: "3 Cucharaditas de búlgaros", checked: true, "value": 27, element: document.getElementById("chk_cucharaditas")};
+  const chk_leche = {"id": "chk_leche", item_name: "1 Botella de leche danlac 900ml", checked: true, "value": 10, element: document.getElementById("chk_leche")};
+  const chk_frasco = {"id": "chk_frasco", item_name: "1 Frasco de vidrio 1.8L", checked: true, "value": 10, element: document.getElementById("chk_frasco")};
+  const chk_filtros = {"id": "chk_filtros", item_name: "1 Paquete de filtros de Café", checked: true, "value": 20, element: document.getElementById("chk_filtros")};
+  const chk_ligas = {"id": "chk_ligas", item_name: "1 Paquete de ligas", checked: true, "value": 5, element: document.getElementById("chk_ligas")};
+  const starter_kit_form = [
+    chk_cucharaditas,
+    chk_leche,
+    chk_frasco,
+    chk_filtros,
+    chk_ligas
+  ];
+  const items: string[] = [];
+
+  function handle_check (element: Event, chk: any) {
+    const q = element.target as HTMLInputElement;
+    if (q) {
+      chk.checked = q.checked;
+    }
+    recalculateTotal()
+  }
+  chk_leche.element?.addEventListener(
+    "change",
+    element => handle_check(element, chk_leche)
+  );
+
+  chk_frasco.element?.addEventListener(
+    "change",
+    element => handle_check(element, chk_frasco)
+  );
+
+  chk_filtros.element?.addEventListener(
+    "change",
+    element => handle_check(element, chk_filtros)
+  );
+
+  chk_ligas.element?.addEventListener(
+    "change",
+    element => handle_check(element, chk_ligas)
+  );
+
+  function recalculateTotal () {
+    let total = 0;
+    items.length = 0;
+
+    starter_kit_form.forEach(element => {
+      if (element.checked) {
+        total += element.value;
+        items.push(element.item_name); 
+      }
+    });
+
+    const total_element = document.getElementById('starter_kit_form_total');
+    if (total_element) total_element.innerText = total.toString();
+    
+    const str_items = items.join('%0a');
+    const message = `Hola! Quisiera hacer este pedido: %0a${str_items}`
+    const href_wsp = `https://wa.me/51915244029?text=${message}`;
+
+    const custom_href_wsp = document.getElementById('custom_href') as HTMLAnchorElement;
+    if (custom_href_wsp) {
+      custom_href_wsp.href = href_wsp;
+    }
+  }
+
+  recalculateTotal()
+</script>
